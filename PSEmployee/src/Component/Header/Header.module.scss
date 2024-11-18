@@ -1,0 +1,32 @@
+.headerBg{
+    width: 100vw;
+    height: 261px;
+    background-color: rgb(12, 115, 254);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 58.25%, 0% 80.81%);
+}
+
+.logoArea{
+    display: flex;
+    gap: 5px;
+    margin-bottom: 28px;
+}
+
+.logo{
+    width: 42px;
+    height: 42px;
+}
+
+.name{
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 39px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.wrapper{
+    padding-top: 30px;
+    padding-left: 60px;
+}
