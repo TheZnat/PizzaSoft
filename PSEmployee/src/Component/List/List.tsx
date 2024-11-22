@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./List.module.scss";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../../Redux/store";
+import { useSelector } from "react-redux";
+import { RootState} from "../../Redux/store";
+import { Status } from "../../types/common";
+import { Link } from "react-router-dom";
 
 const List: React.FC = () => {
   const { items, isLoading, status } = useSelector(
     (state: RootState) => state.data
   );
- 
+
   return (
     <div className={styles.wrapper}>
       {isLoading ? (
         <p>Загрузка данных...</p>
-      ) : status === "error" ? (
+      ) : status === Status.ERROR ? (
         <p>Ошибка загрузки данных</p>
       ) : items && items.length > 0 ? (
         <div className={styles.listArea}>
@@ -21,20 +23,22 @@ const List: React.FC = () => {
               <div className={styles.statusArea}>
                 <div className={styles.status}>
                   <span>Архив: {employee.isArchive ? "Да" : "Нет"}</span>
-                  <span>{employee.role}</span>
+                  <span>{employee.role || "Не указана"}</span>
                 </div>
-                <span className={styles.formText}>{employee.name}</span>
+                <span className={styles.formText}>
+                  {employee.name || "Не указано"}
+                </span>
               </div>
-              <span className={styles.formText}>{employee.phone}</span>
-              <span className={styles.formText}>{employee.birthday}</span>
-              <button
-                className={styles.bth}
-                onClick={() =>
-                  console.log(`Редактировать сотрудника ${employee.id}`)
-                }
-              >
+              <span className={styles.formText}>
+                {employee.phone || "Не указан"}
+              </span>
+              <span className={styles.formText}>
+                {employee.birthday || "Не указана"}
+              </span>
+              <Link to={`/edit/${employee.id}`} className={styles.bth}>
                 Редактировать
-              </button>
+              </Link>
+
               <div className={styles.bgElement}></div>
             </div>
           ))}

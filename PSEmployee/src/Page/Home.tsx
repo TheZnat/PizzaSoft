@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchItems());
+    dispatch(fetchItems({}));
   }, [dispatch]);
 
   return (

@@ -8,12 +8,36 @@ const initialState: DataState = {
   status: Status.LOADING,
 };
 
-export const fetchItems = createAsyncThunk("data/fetchItems", async () => {
-  const response = await axios.get(
-    "https://673c921196b8dcd5f3fa990c.mockapi.io/employees"
-  );
-  return response.data;
-});
+export const fetchItems = createAsyncThunk(
+  "data/fetchItems",
+  async (
+    filters: {
+      name?: string;
+      role?: string;
+      birthday?: string;
+      isArchive?: boolean;
+    } = {}
+  ) => {
+    try {
+      const params: any = {};
+      if (filters.name) params.name = filters.name;
+      if (filters.role) params.role = filters.role;
+      if (filters.birthday) params.birthday = filters.birthday;
+      if (filters.isArchive !== undefined)
+        params.isArchive = String(filters.isArchive);
+
+      const response = await axios.get(
+        `https://673c921196b8dcd5f3fa990c.mockapi.io/employees?${new URLSearchParams(
+          params
+        )}`
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error; // Обработка ошибки
+    }
+  }
+);
 
 const dataSlice = createSlice({
   name: "data",

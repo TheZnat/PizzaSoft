@@ -1,10 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import filterReducer from "./slices/filter/filterSlice";
+
 import dataReducer from "./slices/data/dataSlice";
 
 export const store = configureStore({
   reducer: {
-    filter: filterReducer, // Указываем ключ (например, filters) и значение filterReducer
     data: dataReducer,
   },
 });

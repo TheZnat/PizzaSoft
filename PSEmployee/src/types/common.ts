@@ -2,9 +2,9 @@ export interface Employees {
   id: number;
   name: string;
   isArchive: boolean;
-  role: "driver" | "waiter" | "cook"; // Перечисление ролей
-  phone: string; // Телефон в виде строки
-  birthday: string; // Дата в строковом формате
+  role: "driver" | "waiter" | "cook"; 
+  phone: string; 
+  birthday: string; 
 }
 
 export enum Status {
