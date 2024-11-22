@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
-  
 }
 
 
@@ -19,7 +18,6 @@
 
 
 .SearchInput{
-    
     width: 100%;
     height: 36px;
     box-sizing: border-box;
@@ -57,12 +55,15 @@
 
 .secondInputArea{
     display: flex;
-    gap: 45px;
+    gap: 120px;
 }
 
 
 .bthAdd{
     width: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

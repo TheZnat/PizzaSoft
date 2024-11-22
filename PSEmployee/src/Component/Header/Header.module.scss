@@ -4,7 +4,9 @@
     background-color: rgb(12, 115, 254);
     clip-path: polygon(0% 0%, 100% 0%, 100% 58.25%, 0% 93.81%);
     padding-top: 30px;
-    padding-left: 60px;
+    display: flex;
+    justify-content: center;
+    // padding-left: 260px;
 }
 
 .logoArea{
