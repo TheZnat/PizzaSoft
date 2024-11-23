@@ -52,6 +52,7 @@ body {
   align-items: center;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  background-color: #F6F8FA;
 }
 
 button{

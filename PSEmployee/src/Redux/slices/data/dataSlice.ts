@@ -16,11 +16,13 @@ export const fetchItems = createAsyncThunk(
       role?: string;
       birthday?: string;
       isArchive?: boolean;
+      id?: string;
     } = {}
   ) => {
     try {
       const params: any = {};
       if (filters.name) params.name = filters.name;
+      if (filters.id) params.id = filters.id;
       if (filters.role) params.role = filters.role;
       if (filters.birthday) params.birthday = filters.birthday;
       if (filters.isArchive !== undefined)
